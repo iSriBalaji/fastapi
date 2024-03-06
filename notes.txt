@@ -1,0 +1,11 @@
+Sebasitan Ramirez is the creator of the fast api
+tiangalo
+
+To create venv
+python3 -m venv fastapi_alex
+source fastapi_alex/bin/activate
+
+To run the app
+uvicorn main:app --reload
+http://127.0.0.1:8000
+
