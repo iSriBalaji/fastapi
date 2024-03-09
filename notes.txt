@@ -9,3 +9,21 @@ To run the app
 uvicorn main:app --reload
 http://127.0.0.1:8000
 
+uvicorn <file_name>:<instance_name>
+
+app.get(/about)
+def login():
+/about is the path
+.get is the operation
+def login() is the path operation function, the entire function defined under it
+@app is the path operation decorator
+
+
+If the port is already in use and if we get this
+ERROR:    [Errno 48] Address already in use
+
+1. we can see if the port is already in use by using
+lsof -i:8000
+2. kill the process
+kill -9 <process_id>
+
