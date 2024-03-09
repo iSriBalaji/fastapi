@@ -27,3 +27,10 @@ lsof -i:8000
 2. kill the process
 kill -9 <process_id>
 
+ORM - object relational mapper
+It has tools to convert between objects in code and database tables
+
+
+Here we can see all the status codes
+https://docs.python.org/3/library/http.html
+
