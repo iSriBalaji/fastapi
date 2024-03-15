@@ -1,0 +1,59 @@
+import requests
+
+class PacerAPI:
+  """
+  A Python class to interact with the Pacer Developer API.
+  """
+
+  def __init__(self, client_id, client_secret):
+    self.client_id = client_id
+    self.client_secret = client_secret
+    self.access_token = None
+
+  def get_access_token(self):
+    # Implement OAuth 2.0 authorization logic here
+    # Refer to the documentation for specific steps to obtain an access token
+    # This might involve making requests to the authorization URL and handling callbacks
+    # ...
+    pass
+
+  def get_today_data(self, endpoint):
+    """
+    Fetches data for today from the specified API endpoint.
+
+    Args:
+      endpoint: The API endpoint URL for retrieving today's data.
+
+    Returns:
+      A dictionary containing the fetched data or None if unsuccessful.
+    """
+
+    if not self.access_token:
+      self.get_access_token()
+
+    headers = {"Authorization": f"Bearer {self.access_token}"}
+    response = requests.get(endpoint, headers=headers)
+
+    if response.status_code == 200:
+      return response.json()
+    else:
+      print(f"Error: {response.status_code}")
+      return None
+
+# Example usage (replace with your actual client credentials)
+# client_id = "YOUR_CLIENT_ID"
+# client_secret = "YOUR_CLIENT_SECRET"
+client_id = 'pacer_6cb249f1a99d462a99af70e48a72611a'
+client_secret = '8d75412e5b6e45908b2570d4e13f8574'
+
+api = PacerAPI(client_id, client_secret)
+
+# Replace 'today_data_endpoint' with the actual endpoint for today's data
+today_data = api.get_today_data("https://api.pacer.com/v1/today")
+
+
+if today_data:
+  print("Today's Data:")
+  # Process the retrieved data (today_data)
+else:
+  print("Failed to retrieve today's data.")
