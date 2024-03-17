@@ -4,6 +4,7 @@ from sqlalchemy.orm import relationship
 
 from .database import Base
 
+# all the models we see here are actual tables and their relationships defined in the database and tables
 
 class Post(Base):
     __tablename__ = 'post'

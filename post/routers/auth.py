@@ -6,7 +6,7 @@ from .. import model
 from ..hashing import Hash
 from ..repository.auth import authenticate
 
-router = APIRouter( prefix='/login')
+router = APIRouter( tags=['Auth'], prefix='/login')
 
 @router.post('/', status_code=status.HTTP_202_ACCEPTED, response_model=AuthShow)
 def login(request: Auth, db: Session = Depends(get_db)):

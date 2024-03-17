@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import List
 
+# All the models/schemas we see are pydantic models which was the in the request side we see
 class PostBase(BaseModel):
     title: str
     post: str
@@ -42,3 +43,13 @@ class AuthShow(BaseModel):
     email: str
     class Config():
         orm_model = True
+
+# pydantic model copied from the fastapi documen - for the JWT token logics
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+class TokenData(BaseModel):
+    username: str | None = None
+    scopes: list[str] = []
