@@ -5,7 +5,7 @@ from post.database import engine, SessionLocal, get_db
 from sqlalchemy.orm import Session
 from typing import List
 from post.hashing import Hash
-from .routers import user, post
+from .routers import user, post, auth
 
 app = FastAPI()
 
@@ -21,6 +21,7 @@ model.Base.metadata.create_all(engine)
 
 app.include_router(user.router)
 app.include_router(post.router)
+app.include_router(auth.router)
 
 # # @app.post("/create", status_code=201)
 # # we can import status and put the status code directly here like this(below)

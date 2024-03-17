@@ -29,3 +29,16 @@ class ShowPost(BaseModel):
     creator: ShowUser # make sure to use the same 'variable' here remember we names it as creator in the model
     class Config():
         orm_model = True
+
+class Auth(BaseModel):
+    username: str
+    password: str
+    class Config():
+        orm_model = True
+
+class AuthShow(BaseModel):
+    id: int
+    name: str
+    email: str
+    class Config():
+        orm_model = True
