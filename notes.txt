@@ -34,3 +34,6 @@ It has tools to convert between objects in code and database tables
 Here we can see all the status codes
 https://docs.python.org/3/library/http.html
 
+## To 
+# to install the library inside the virtual env if there it is not working with direct pip - make sure to use the absolute path
+/Users/sribalaji/Documents/Projects/Fastapi_Alex/fastapi_alex/bin/pip install bcrypt

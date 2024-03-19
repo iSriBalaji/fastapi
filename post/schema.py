@@ -51,5 +51,9 @@ class Token(BaseModel):
 
 
 class TokenData(BaseModel):
-    username: str | None = None
+    email: str | None = None
     scopes: list[str] = []
+
+
+class UserInDB(User):
+    hashed_password: str

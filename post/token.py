@@ -1,6 +1,8 @@
 from datetime import datetime, timedelta, timezone
 from jose import JWTError, jwt
-
+from .schema import TokenData, UserInDB
+from fastapi import HTTPException, status
+from pydantic import BaseModel, ValidationError
 
 SECRET_KEY = "09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7"
 ALGORITHM = "HS256"
@@ -18,5 +20,19 @@ def create_access_token(data: dict, expires_delta: timedelta | None = None):
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
 
+def get_user(db, email: str):
+    if email in db:
+        user_dict = db[email]
+        return UserInDB(**user_dict)
 
-print(create_access_token(data={'email': 'sribalaji@gmail.com'}))
+def verify_token(token, db, credentials_exception):
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        email: str = payload.get("sub")
+        if email is None:
+            raise credentials_exception
+        token_data = TokenData(email=email)
+    except (JWTError, ValidationError):
+        raise credentials_exception
+    
+    return token_data
