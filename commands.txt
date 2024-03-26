@@ -1,0 +1,26 @@
+These are the commands used to containize the project in alpine linux(as it is small and secure)
+
+   4 cd home/
+   5 mkdir app
+   6 cd app/
+
+   9 apk update
+  11 apk add git
+  15 apk add python
+  16 apk add python3
+
+  21 git clone https://github.com/iSriBalaji/fastapi.git
+  23 cd fastapi/
+  27 apk add python-pip
+  28 apk add python3-pip
+  29 apk add --no-cache python3 py3-pip
+
+  64 apk update
+  65 apk add --no-cache py3-virtualenv
+
+  90 pip install numpy --break-system-packages
+  93 pip install -r requirement.txt --break-system-packages
+  95 uvicorn --version
+  96 uvicorn post.main:app --reload
+  97 history -10000
+  98 history -10000 > commands.txt

@@ -37,3 +37,4 @@ https://docs.python.org/3/library/http.html
 ## To 
 # to install the library inside the virtual env if there it is not working with direct pip - make sure to use the absolute path
 /Users/sribalaji/Documents/Projects/Fastapi_Alex/fastapi_alex/bin/pip install bcrypt
+pip install numpy --break-system-packages - this is to run in alpine linux for the containers(to create docker images)
